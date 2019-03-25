@@ -1,0 +1,19 @@
+<h1>Edit a Team </h1>
+
+<% if @team.errors.any?  %>
+ <div id="error explanation">
+ <h2>We found a few errors in your form:</h2>
+ <ul>
+ <% @team.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+ <% end  %>
+ </ul>
+<% end  %>
+
+<%= form_for @team do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %>
+ 
+ <%= f.submit %>
+ </div>
+<% end %>

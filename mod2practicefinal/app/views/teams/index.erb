@@ -1,0 +1,4 @@
+<h1>INDEX</h1>
+<% @teams.each do |item| %>
+    <%= link_to item.name, team_path(item)%> <br>
+<%end%>
