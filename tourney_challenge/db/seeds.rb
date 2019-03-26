@@ -7,12 +7,17 @@ user = User.create(
 	username: 'AI'
 	)
 
+
+user = User.create(
+	username: 'AI'
+	)
+
 16.times do
  team=Team.create(
     name: Faker::Team.unique.creature,
     school: Faker::University.name,
     history: Faker::Movie.quote,
-    team_spirit: rand(0.9...1.05),
+    team_spirit: rand(0.9...1.05), 
     user_id: user.id
   )
    10.times do
@@ -23,12 +28,13 @@ user = User.create(
          school: Faker::University.name,
          offense: rand(6.5...10.0),
          defense: rand(6.5...10.0),
-        image: UiFaces.face,
+         image: UiFaces.face,
          team_id: team.id
 
        )
    end
 end
+
 
 tournament = Tournament.create(
  	name: "Tourney1",

@@ -18,20 +18,10 @@ class Bracket < ApplicationRecord
    end
 
    def whole_bracket (teams, size)
-	ordered_teams=order_by_power(teams)
-	brack_order=bracket_order(size)
-	map_bracket(ordered_teams, brack_order)
+		ordered_teams=order_by_power(teams)
+		brack_order=bracket_order(size)
+		map_bracket(ordered_teams, brack_order)
    end
-
-	def seed_teams (teams)
-		ordered_teams = order_by_power(teams)
-		seeded=[]
-		#array of arays(each being a matchup)
-		for i in 0..ordered_teams.length/2-1
-			seeded.push(ordered_teams[i])
-			seeded.push(ordered_teams[-i-1])
-		end
-	end
 	
 	def bracket_order(entrants)
 		starting=[1,4,3,2]
