@@ -1,0 +1,4 @@
+<h1>INDEX</h1>
+<% @users.each do |item| %>
+    <%= link_to item.username, user_path(item)%> <br>
+<%end%>

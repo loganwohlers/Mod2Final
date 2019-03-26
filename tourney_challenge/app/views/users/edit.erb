@@ -1,0 +1,19 @@
+<h1>Edit Profile </h1>
+
+<% if @user.errors.any?  %>
+ <div id="error explanation">
+ <h2>We found a few errors in your form:</h2>
+ <ul>
+ <% @user.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+ <% end  %>
+ </ul>
+<% end  %>
+
+<%= form_for @user do |f| %>
+ <%= f.label :username %>
+ <%= f.text_field :username %>
+ 
+ <%= f.submit %>
+ </div>
+<% end %>
