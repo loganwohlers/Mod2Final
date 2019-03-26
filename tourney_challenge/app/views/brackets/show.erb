@@ -22,4 +22,18 @@ ORDERED: <br>
     <%= s.name %> Power: <%=s.power_score %>  <%= brackets_order[final_bracket.index(s)] %> <br>
 <% end %>
 
+<br>
+
+<h3>Simulating Bracket........</h3>
+<% for i in 0..(final_bracket.length-2) %>
+    <%curr_teams=final_bracket.shift(2)%>
+    <% t1=curr_teams[0] %>
+    <% t2=curr_teams[1] %> 
+    T1: <%= t1.name %> (Power Score: <%= t1.power_score %>) vs T1: <%= t2.name %>(Power Score: <%= t2.power_score %>) <br>
+    <% winner= @bracket.play_game(t1, t2)%>
+    <%final_bracket.push(curr_teams[winner])%>
+    Winner: <%=curr_teams[winner].name%>
+    <br>
+<% end %>
+
 
