@@ -2,8 +2,8 @@ class Bracket < ApplicationRecord
 	belongs_to :tournament
 	belongs_to :user
 
-	def play_game(t1, t2)
 
+	def play_game(t1, t2)
 		outcome=t1.power_score-t2.power_score
 
 		if outcome>=0
