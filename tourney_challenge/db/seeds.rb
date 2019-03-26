@@ -3,6 +3,9 @@ Team.destroy_all
 Bracket.destroy_all
 
 #4x3
+user = User.create(
+	username: 'AI'
+	)
 
 
 user = User.create(
@@ -25,7 +28,9 @@ user = User.create(
          school: Faker::University.name,
          offense: rand(6.5...10.0),
          defense: rand(6.5...10.0),
+         image: UiFaces.face,
          team_id: team.id
+
        )
    end
 end
