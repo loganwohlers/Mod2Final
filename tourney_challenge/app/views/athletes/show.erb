@@ -5,6 +5,7 @@
     <li>Age: <%= @athlete.age %> </li>
     <li>Bio: <%= @athlete.bio %> </li>
     <li>School: <%= @athlete.school %> </li>
+    <li>photo: <img src="<%= @athlete.image %>" ></li>
     <li>Offensive Rating: <%= @athlete.offense.round(3) %> </li>
     <li>Defensive Rating: <%= @athlete.defense.round(3) %> </li>
     <li>Team: <%= link_to @athlete.team.name, team_path(@athlete.team)%></li>
