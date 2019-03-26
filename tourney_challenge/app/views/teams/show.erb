@@ -1,10 +1,10 @@
-<h3>Team Show Page</h3>
+<h2><%= @team.user.username %>'s <%= @team.name.capitalize %> <%=  %> </h2>
 
 <ul>
-        <li>Name: <%= @team.name %> </li>
         <li>School: <%= @team.school %> </li>
         <li>History: <%= @team.history %> </li>
         <li>Calculated Team Spirit: <%= @team.team_spirit.round(3) %> </li>
+        <li>Owner: <%= @team.user.username %> </li>
 
 </ul>
 
