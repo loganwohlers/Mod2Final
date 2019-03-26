@@ -4,12 +4,18 @@ Bracket.destroy_all
 
 #4x3
 
+
+user = User.create(
+	username: 'AI'
+	)
+
 16.times do
  team=Team.create(
     name: Faker::Team.unique.creature,
     school: Faker::University.name,
     history: Faker::Movie.quote,
-    team_spirit: rand(0.9...1.05)
+    team_spirit: rand(0.9...1.05), 
+    user_id: user.id
   )
    10.times do
        Athlete.create(
@@ -24,9 +30,6 @@ Bracket.destroy_all
    end
 end
 
-user = User.create(
-	username: Faker::Name.name
-	)
 
 tournament = Tournament.create(
  	name: "Tourney1",

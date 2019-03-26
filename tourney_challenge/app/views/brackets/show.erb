@@ -18,6 +18,7 @@ ORDERED: <br>
 
 <br>
 
+SEEDED: <br>
 <%final_bracket.each do |s| %>
     <%= s.name %> Power: <%=s.power_score %>  <%= brackets_order[final_bracket.index(s)] %> <br>
 <% end %>
@@ -33,7 +34,7 @@ ORDERED: <br>
     <% winner= @bracket.play_game(t1, t2)%>
     <%final_bracket.push(curr_teams[winner])%>
     Winner: <%=curr_teams[winner].name%>
-    <br>
+    <br> <br>
 <% end %>
 
 
