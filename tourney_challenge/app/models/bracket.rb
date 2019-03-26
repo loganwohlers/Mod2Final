@@ -13,7 +13,18 @@ class Bracket < ApplicationRecord
 		end
    end
 
-    def seed_teams (ordered_teams)
+   def order_by_power (teams)
+		teams.sort_by {|t| t.power_score}.reverse
+   end
+
+   def whole_bracket (teams, size)
+	ordered_teams=order_by_power(teams)
+	brack_order=bracket_order(size)
+	map_bracket(ordered_teams, brack_order)
+   end
+
+	def seed_teams (teams)
+		ordered_teams = order_by_power(teams)
 		seeded=[]
 		#array of arays(each being a matchup)
 		for i in 0..ordered_teams.length/2-1
@@ -28,7 +39,7 @@ class Bracket < ApplicationRecord
 			return starting
 		else
 			#number of times we are going to "grow/double" the bracket(assuming they start w/ >4 teams)
-			#-2 because we are already starting at 4 (2^2) then 
+			#-2 because we are already starting at 4 (2^2) 
 			for i in 1..(Math.log2(entrants)-2)
 				starting=double_bracket(starting)
 			end
