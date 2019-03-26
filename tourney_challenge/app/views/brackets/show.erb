@@ -1,0 +1,25 @@
+<h4><%= @bracket.name %> </h4>
+<h4>Teams:</h4>
+<% @teams.each do |t| %>
+    <%=t.name%> Power: <%=t.power_score %> <br>
+<% end %>
+ <br>
+
+<% ordered=@bracket.order_by_power(@teams) %>
+
+ORDERED: <br>
+<%ordered.each do |s| %>
+    <%= s.name %> Power: <%=s.power_score %> <br>
+<% end %>
+
+<% brackets_order=@bracket.bracket_order(16) %> <br>
+
+<% final_bracket=@bracket.whole_bracket(@teams, 16) %>
+
+<br>
+
+<%final_bracket.each do |s| %>
+    <%= s.name %> Power: <%=s.power_score %>  <%= brackets_order[final_bracket.index(s)] %> <br>
+<% end %>
+
+
