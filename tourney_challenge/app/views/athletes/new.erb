@@ -11,8 +11,23 @@
 <% end  %>
 
 <%= form_for @athlete do |f| %>
- <%= f.label :name %>
- <%= f.text_field :name %>
+ 
+<%= f.label :name %>
+<%= f.text_field :name %><br><br>
+ <%= f.label :age %>
+ <%= f.number_field :age%><br><br>
+ <%= f.label :bio %>
+ <%= f.text_field :bio %><br><br>
+ <%= f.label :school %>
+ <%= f.text_field :school %><br><br>
+ <%= f.label :offense %>
+ <%= f.number_field :offense %><br><br>
+ <%= f.label :defense %>
+ <%= f.number_field :defense %><br><br>
+ <%= f.label :image %>
+ <%= f.text_field :image %><br><br>
+<% end %>
+
  
  <%= f.submit %>
  </div>

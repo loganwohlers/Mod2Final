@@ -20,28 +20,12 @@
   <%= f.label :user_id %>
   <%= f.number_field :user_id %><br><br>
   <%= f.label :history %>
-  <%= f.text_field :history %>
-
-
+  <%= f.text_field :history %> <br>
+  <%= f.collection_check_boxes(:athlete_ids, @athletes, :id, :name)%>
+  <%= f.submit %>
 
   <br> <br>
+  
 
-<%= f.fields_for :athletes do |ath| %>
-<%= ath.label :name %>
-<%= ath.text_field :name %><br><br>
- <%= ath.label :age %>
- <%= ath.number_field :age%><br><br>
- <%= ath.label :bio %>
- <%= ath.text_field :bio %><br><br>
- <%= ath.label :school %>
- <%= ath.text_field :school %><br><br>
- <%= ath.label :offense %>
- <%= ath.number_field :offense %><br><br>
- <%= ath.label :defense %>
- <%= ath.number_field :defense %><br><br>
- <%= ath.label :image %>
- <%= ath.text_field :image %><br><br>
-<% end %>
-
-  <%= f.submit %>
+  
 <% end %>

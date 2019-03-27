@@ -19,7 +19,7 @@ class BracketsController < ApplicationController
             end
         
             def show
-                @teams=Team.all
+                @teams=Team.order("RANDOM()").limit(16)
             end
         
             def edit

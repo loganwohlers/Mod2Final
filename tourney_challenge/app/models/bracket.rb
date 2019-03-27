@@ -1,6 +1,7 @@
 class Bracket < ApplicationRecord
-	belongs_to :tournament
 	belongs_to :user
+	has_many :team_brackets
+	has_many :teams, through: :team_brackets
 
 
 	def play_game(t1, t2)

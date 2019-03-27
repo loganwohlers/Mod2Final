@@ -8,7 +8,7 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
 
         def new
             @team=Team.new
-            @team.athletes.build(name:Faker::Name.name, bio:Faker::Movie.quote, school: "uw", age: rand(18..24), image: UiFaces.face)
+            @athletes=Athlete.order("RANDOM()").limit(7)
 
 
         end
@@ -17,6 +17,7 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
             @team=Team.new(team_params)
 
             if @team.save
+                #make the team_athletes
                 redirect_to team_path(@team)
             else
                 render :new
@@ -46,6 +47,6 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
         end
 
         def team_params
-            params.require(:team).permit(:name, :school, :team_spirit, :history, :user_id, athletes_attributes: [:name, :age, :bio, :school, :offense, :defense, :image])
+            params.require(:team).permit(:name, :school, :team_spirit, :history, :user_id, :athlete_ids => [])
         end
 end
