@@ -7,6 +7,9 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
     
         def new
             @team=Team.new
+            @team.athletes.build
+            
+
         end
     
         def create
@@ -42,6 +45,6 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
         end
 
         def team_params
-            params.require(:team).permit!
+            params.require(:team).permit(:name, :school, :team_spirit, :history, :user_id, athletes_attributes: [:name, :age, :bio, :school, :offense, :defense, :image])
         end
 end

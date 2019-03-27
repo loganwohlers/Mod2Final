@@ -10,10 +10,35 @@
  </ul>
 <% end  %>
 
-<%= form_for @team do |f| %>
- <%= f.label :name %>
- <%= f.text_field :name %>
- 
- <%= f.submit %>
- </div>
+<%= form_for(@team) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :school %>
+  <%= f.text_field :school %>
+  <%= f.label :team_spirit %>
+  <%= f.number_field :team_spirit %>
+  <%= f.label :user_id %>
+  <%= f.number_field :user_id %>
+  <%= f.label :history %>
+  <%= f.text_field :history %>
+
+  <br> <br>
+
+<%= f.fields_for :athletes do |ath| %>
+Name: <%= ath.text_field :name %>
+ <%= ath.label :age %>
+ <%= ath.number_field :age %>
+ <%= ath.label :bio %>
+ <%= ath.text_field :bio %><br>
+ <%= ath.label :school %>
+ <%= ath.text_field :school %><br>
+ <%= ath.label :offense %>
+ <%= ath.number_field :offense %><br>
+ <%= ath.label :defense %>
+ <%= ath.number_field :defense %><br>
+ <%= ath.label :image %>
+ <%= ath.text_field :image %><br>
+<% end %>
+
+  <%= f.submit %>
 <% end %>
