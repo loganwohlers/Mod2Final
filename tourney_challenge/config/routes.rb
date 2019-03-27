@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :skill_points
+  resources :athlete_teams
   resources :athletes
   resources :users
   resources :brackets

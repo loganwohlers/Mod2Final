@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_172419) do
+ActiveRecord::Schema.define(version: 2019_03_27_193949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "athlete_teams", force: :cascade do |t|
+    t.integer "athlete_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "athletes", force: :cascade do |t|
     t.string "name"
@@ -22,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_172419) do
     t.string "school"
     t.float "offense"
     t.float "defense"
-    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -34,13 +40,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_172419) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "skill_points", force: :cascade do |t|
-    t.integer "athlete_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["athlete_id"], name: "index_skill_points_on_athlete_id"
   end
 
   create_table "teams", force: :cascade do |t|

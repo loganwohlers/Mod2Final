@@ -8,7 +8,11 @@
     <li>School: <%= @athlete.school %> </li>
     <li>Offensive Rating: <%= @athlete.offense.round(3) %> </li>
     <li>Defensive Rating: <%= @athlete.defense.round(3) %> </li>
-    <li>Team: <%= link_to @athlete.team.name, team_path(@athlete.team)%></li>
+
+    <li>Plays For: </li>
+    <% @athlete.teams.each do |item| %>
+        <%= link_to item.name, team_path(item)%> <br>
+    <%end%>
 </ul>
 
 <div class="container">
@@ -43,12 +47,6 @@
         </div>
       </div>
 
-      <div class="row bg-success">
-        <div class="col-12 pt-3">
-          <h5 class="text-capitalize text-center">team: <%= link_to @athlete.team.name, team_path(@athlete.team)%></h5>
-        </div>
-
-      </div>
 
     </div>
 

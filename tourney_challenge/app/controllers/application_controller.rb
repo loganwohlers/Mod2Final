@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
  helper_method :logged_in?
- helper_method :can_spend?
+
  before_action :authenticate_user
 
 
@@ -18,20 +18,5 @@ class ApplicationController < ActionController::Base
    end
  end
 
- def set_votes
-   session[:skill_points] ||= 50
- end
-
- def can_spend?
-   session[:skill_points] > 0
- end
-
- def vote_count
-   session[:skill_points].to_i
- end
-
- def decrement_votes
-  session[:skill_points] = vote_count - 1
- end
 
 end
