@@ -12,32 +12,35 @@
 
 <%= form_for(@team) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br><br>
   <%= f.label :school %>
-  <%= f.text_field :school %>
+  <%= f.text_field :school %><br><br>
   <%= f.label :team_spirit %>
-  <%= f.number_field :team_spirit %>
+  <%= f.number_field :team_spirit %><br><br>
   <%= f.label :user_id %>
-  <%= f.number_field :user_id %>
+  <%= f.number_field :user_id %><br><br>
   <%= f.label :history %>
   <%= f.text_field :history %>
+
+
 
   <br> <br>
 
 <%= f.fields_for :athletes do |ath| %>
-Name: <%= ath.text_field :name %>
+<%= ath.label :name %>
+<%= ath.text_field :name %><br><br>
  <%= ath.label :age %>
- <%= ath.number_field :age %>
+ <%= ath.number_field :age%><br><br>
  <%= ath.label :bio %>
- <%= ath.text_field :bio %><br>
+ <%= ath.text_field :bio %><br><br>
  <%= ath.label :school %>
- <%= ath.text_field :school %><br>
+ <%= ath.text_field :school %><br><br>
  <%= ath.label :offense %>
- <%= ath.number_field :offense %><br>
+ <%= ath.number_field :offense %><br><br>
  <%= ath.label :defense %>
- <%= ath.number_field :defense %><br>
+ <%= ath.number_field :defense %><br><br>
  <%= ath.label :image %>
- <%= ath.text_field :image %><br>
+ <%= ath.text_field :image %><br><br>
 <% end %>
 
   <%= f.submit %>

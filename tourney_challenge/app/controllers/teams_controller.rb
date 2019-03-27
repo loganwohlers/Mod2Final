@@ -1,17 +1,18 @@
 class TeamsController < ApplicationController
-
+skip_before_action :authenticate_user, only: [:index, :show]
 before_action :set_team, only: [:show, :edit, :update, :destroy]
+
     def index
             @teams=Team.all
         end
-    
+
         def new
             @team=Team.new
-            @team.athletes.build
-            
+            @team.athletes.build(name:Faker::Name.name, bio:Faker::Movie.quote, school: "uw", age: rand(18..24), image: UiFaces.face)
+
 
         end
-    
+
         def create
             @team=Team.new(team_params)
 
@@ -21,13 +22,13 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
                 render :new
             end
         end
-    
+
         def show
         end
-    
+
         def edit
         end
-        
+
         def update
             @team.update(team_params)
             redirect_to team_path(@example)
@@ -37,7 +38,7 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
             @team.destroy
             redirect_to teams_path
         end
-    
+
         private
 
         def set_team

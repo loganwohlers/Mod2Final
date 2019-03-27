@@ -11,4 +11,49 @@
     <li>Team: <%= link_to @athlete.team.name, team_path(@athlete.team)%></li>
 </ul>
 
+<div class="container">
+	<div class="row">
+
+    <div class="offset-md-2 col-md-8 bg-info px-5 pt-4">
+      <div class="row">
+        <div class="col-md-8">
+            <h2><%= @athlete.name %></h2>
+            <p><strong>Age: </strong> <%= @athlete.age %> </p>
+            <p><strong>Bio: </strong> <%= @athlete.bio %> </p>
+
+        </div>
+        <div class="col-md-4">
+            <figure>
+                <img src="<%= @athlete.image %>" alt="" class="rounded-circle img-responsive float-right">
+            </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="text-center"><strong>Offensive Rating</strong></h5>
+          <h4 class="text-center"><%= @athlete.offense.round(3) %> </h4>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-center"><strong>Defensive Rating</strong></h5>
+          <h4 class="text-center"><%= @athlete.defense.round(3) %> </h4>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-center"><strong>Age</strong></h5>
+          <h4 class="text-center"><%= @athlete.age %></h4>
+        </div>
+      </div>
+
+      <div class="row bg-success">
+        <div class="col-12 pt-3">
+          <h5 class="text-capitalize text-center">team: <%= link_to @athlete.team.name, team_path(@athlete.team)%></h5>
+        </div>
+
+      </div>
+
+    </div>
+
+	</div>
+</div>
+
+
 <%= link_to ('Back to All Athletes'), athletes_path%>

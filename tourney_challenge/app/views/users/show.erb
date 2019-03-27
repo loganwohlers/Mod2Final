@@ -3,5 +3,11 @@
 
 <%=@user.username%> <br>
 
+<% @user.teams.each do |item| %>
+    <%= link_to item.name, team_path(item)%> <br>
+<%end%>
+
+
+
 
 <%= link_to 'Index', users_path%>
