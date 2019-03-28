@@ -16,14 +16,17 @@ SEEDED: <br>
 
 
 <h3>Simulating Bracket........</h3>
-<% for i in 0..(final_bracket.length-2) %>
-<%curr_teams=final_bracket.shift(2)%>
-<% t1=curr_teams[0] %>
-<% t2=curr_teams[1] %> 
-T1: <%= t1.name %> (Power Score: <%= t1.power_score.round(3) %>) SEED: <%= teams.index(t1)+1 %> vs T2: <%= t2.name %>(Power Score: <%= t2.power_score.round(3) %>) SEED: <%= teams.index(t2)+1 %> <br>
-<% winner= @bracket.play_game(t1, t2)%>
-<%final_bracket.push(curr_teams[winner])%>
-Winner: <%=curr_teams[winner].name%>
-<br> <br>
+<% for i in 1..(Math.log2(final_bracket.length)-1)%>
+    <h4>Round: <%= i %></h4> <br>
+    <% for j in 1..(final_bracket.length/2)  %>
+        <%curr_teams=final_bracket.shift(2)%>
+        <% t1=curr_teams[0] %>
+        <% t2=curr_teams[1] %> 
+        T1: <%= t1.name %> (Power Score: <%= t1.power_score.round(3) %>) SEED: <%= teams.index(t1)+1 %> vs T2: <%= t2.name %>(Power Score: <%= t2.power_score.round(3) %>) SEED: <%= teams.index(t2)+1 %> <br>
+        <% winner= @bracket.play_game(t1, t2)%>
+        <%final_bracket.push(curr_teams[winner])%>
+        Winner: <%=curr_teams[winner].name%> <br>
+    <% end %>
 <% end %>
+
 
