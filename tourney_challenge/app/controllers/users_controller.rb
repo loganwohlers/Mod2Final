@@ -1,15 +1,8 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
 
-  def index
-    @users = User.all
-  end
   def new
     @user = User.new
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def create
@@ -23,8 +16,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users=User.all
+  end
+
+  def show
+    @user=User.find(session[:user_id])
+  end
+
   private
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end

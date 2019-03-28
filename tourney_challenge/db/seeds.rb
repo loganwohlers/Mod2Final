@@ -5,7 +5,7 @@ TeamBracket.destroy_all
 AthleteTeam.destroy_all
 User.destroy_all
 
-user = User.create(username: 'AI')
+user = User.create(username: 'AI', password: 'robot', password_digest: 'robot')
 
 bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entrants: 16)
 

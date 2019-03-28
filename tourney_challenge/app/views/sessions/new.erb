@@ -3,9 +3,13 @@
 <% end %>
 
 <%= form_tag login_path, {class: 'ui form'} do %>
+  <%= label_tag :username %>
   <div class="field">
-    <%= label_tag :username %>
     <%= text_field_tag :username %>
+  </div>
+  <%= label_tag :password %>
+  <div class="field">
+    <%= password_field_tag :password %>
   </div>
   <%= submit_tag 'Login', {class: 'ui medium pink button inverted'} %>
 <% end %>
