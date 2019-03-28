@@ -17,7 +17,6 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
             @team=Team.new(team_params)
 
             if @team.save
-                #make the team_athletes
                 redirect_to team_path(@team)
             else
                 render :new

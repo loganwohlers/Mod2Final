@@ -3,9 +3,11 @@ class Bracket < ApplicationRecord
 	has_many :team_brackets
 	has_many :teams, through: :team_brackets
 
-
 	def play_game(t1, t2)
-		outcome=t1.power_score-t2.power_score
+		t1sauce=special_sauce(t1)
+		t2sauce=special_sauce(t2)
+
+		outcome=t1sauce-t2sauce
 
 		if outcome>=0
 			return 0
@@ -14,13 +16,17 @@ class Bracket < ApplicationRecord
 		end
    end
 
-   def order_by_power (teams)
-		teams.sort_by {|t| t.power_score}.reverse
+   def special_sauce (team)
+		team.power_score*rand(0.93..1.15)*rand(1-team.team_spirit/100...1+team.team_spirit/100)
    end
 
-   def whole_bracket (teams, size)
-		ordered_teams=order_by_power(teams)
-		brack_order=bracket_order(size)
+   def order_teams
+		self.teams.sort_by {|t| t.power_score}.reverse
+   end
+
+   def whole_bracket
+		ordered_teams=self.order_teams
+		brack_order=bracket_order(self.entrants)
 		map_bracket(ordered_teams, brack_order)
    end
 	

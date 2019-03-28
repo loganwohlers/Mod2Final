@@ -7,7 +7,7 @@ User.destroy_all
 
 user = User.create(username: 'AI')
 
-bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id)
+bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entrants: 16)
 
 16.times do
    team=Team.create(

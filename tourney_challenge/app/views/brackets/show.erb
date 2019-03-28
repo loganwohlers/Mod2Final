@@ -1,40 +1,29 @@
 <h4><%= @bracket.name %> </h4>
-<h4>Teams:</h4>
-<% @teams.each do |t| %>
-    <%=t.name%> <br>
-<% end %>
- <br>
 
-<% ordered=@bracket.order_by_power(@teams) %>
+<% teams=@bracket.order_teams %>
+<% teams.each do |item| %>
+    Team: <%= item.name%> Power Score: <%= item.power_score.round(4) %> <br>
+<%end%>
 
-ORDERED: <br>
-<%ordered.each do |s| %>
-    <%= s.name %> Power: <%=s.power_score %> <br>
-<% end %>
 
-<% brackets_order=@bracket.bracket_order(16) %> <br>
-
-<% final_bracket=@bracket.whole_bracket(@teams, 16) %>
-
-<br>
+<% final_bracket=@bracket.whole_bracket%>
 
 SEEDED: <br>
 <%final_bracket.each do |s| %>
-    <%= s.name %> Power: <%=s.power_score %>  <%= brackets_order[final_bracket.index(s)] %> <br>
+<%= s.name %> Power: <%=s.power_score.round(4) %>   SEED: <%= teams.index(s)+1 %>
+<br>
 <% end %>
 
-<br>
 
 <h3>Simulating Bracket........</h3>
 <% for i in 0..(final_bracket.length-2) %>
-    <%curr_teams=final_bracket.shift(2)%>
-    <% t1=curr_teams[0] %>
-    <% t2=curr_teams[1] %> 
-    T1: <%= t1.name %> (Power Score: <%= t1.power_score %>) vs T1: <%= t2.name %>(Power Score: <%= t2.power_score %>) <br>
-    <% winner= @bracket.play_game(t1, t2)%>
-    <%final_bracket.push(curr_teams[winner])%>
-    Winner: <%=curr_teams[winner].name%>
-    <br> <br>
+<%curr_teams=final_bracket.shift(2)%>
+<% t1=curr_teams[0] %>
+<% t2=curr_teams[1] %> 
+T1: <%= t1.name %> (Power Score: <%= t1.power_score %>) SEED: <%= teams.index(t1)+1 %> vs T2: <%= t2.name %>(Power Score: <%= t2.power_score %>) SEED: <%= teams.index(t2)+1 %> <br>
+<% winner= @bracket.play_game(t1, t2)%>
+<%final_bracket.push(curr_teams[winner])%>
+Winner: <%=curr_teams[winner].name%>
+<br> <br>
 <% end %>
-
 

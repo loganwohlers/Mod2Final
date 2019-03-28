@@ -1,0 +1,26 @@
+<h1>Create a New Bracket </h1>
+
+<% if @bracket.errors.any?  %>
+ <div id="error explanation">
+ <h2>We found a few errors in your form:</h2>
+ <ul>
+ <% @bracket.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+ <% end  %>
+ </ul>
+<% end  %>
+
+<%= form_for(@bracket) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %><br><br>
+  <%= f.label :entrants %>
+  <%= f.select :entrants, ['8', '16', '32', '64'] %>
+  <%= f.submit %>
+
+  <br> <br>
+  
+
+  
+<% end %>

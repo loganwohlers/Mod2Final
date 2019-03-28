@@ -14,7 +14,7 @@ class Team < ApplicationRecord
         self.athletes.each do |a|
             total+=a.offense
         end
-        ((total/self.athletes.length)*10).round(3)*rand(0.87...1.04)
+        ((total/self.athletes.length)*10).round(3)
     end
 
     def defensive_score
@@ -22,16 +22,11 @@ class Team < ApplicationRecord
         self.athletes.each do |a|
             total+=a.defense
         end
-        ((total/self.athletes.length)*10).round(3)*rand(0.93...1.15)
+        ((total/self.athletes.length)*10).round(3)
     end
 
-    def self.power_score
-
-        if @powerscore==0
-            ((self.offensive_score+self.defensive_score)/2)*rand(1-self.team_spirit/100...1+self.team_spirit/100)
-        else
-            @powerscore
-        end
+    def power_score
+       ((self.offensive_score+self.defensive_score)/2)
     end
 
     # validate :power_limit

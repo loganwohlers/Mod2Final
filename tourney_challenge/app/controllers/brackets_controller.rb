@@ -12,6 +12,10 @@ class BracketsController < ApplicationController
                 @bracket=Bracket.new(bracket_params)
     
                 if @bracket.save
+                    teams=Team.order("RANDOM()").limit(@bracket.entrants)
+                    teams.each do |t|
+                        TeamBracket.create(bracket_id: @bracket.id, team_id: t.id)
+                    end
                     redirect_to bracket_path(@bracket)
                 else
                     render :new
@@ -19,7 +23,7 @@ class BracketsController < ApplicationController
             end
         
             def show
-                @teams=Team.order("RANDOM()").limit(16)
+                
             end
         
             def edit
