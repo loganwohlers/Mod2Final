@@ -1,8 +1,20 @@
 
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
 //my class
 .card {
-    display: inline-block !important;
+    display: inline-block  ;
+    padding: 0px  ;
+    margin: 10px 5px;
 }
+
+.card-img-top:hover {
+    opacity: .75;
+    transition: ease .35s;
+}
+
 
 
 
@@ -317,7 +329,3 @@ a:focus, a:hover {
 footer {
   padding: 5rem 0;
 }
-
-
-// Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";

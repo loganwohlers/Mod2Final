@@ -13,14 +13,11 @@
 <%= form_for(@bracket) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br><br>
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %><br><br>
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
   <%= f.label :entrants %>
   <%= f.select :entrants, ['8', '16', '32', '64'] %>
   <%= f.submit %>
 
   <br> <br>
-  
 
-  
 <% end %>

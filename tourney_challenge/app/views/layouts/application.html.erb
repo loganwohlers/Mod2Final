@@ -4,17 +4,22 @@
     <title>Tourney Challenge</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag   'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js" integrity="sha256-399DNRyfIpWIy1ZV0KmEIIuIQ5sBHdLu9MBtVHrNtt8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" integrity="sha256-HtCCUh9Hkh//8U1OwcbD8epVEUdBvuI8wj1KtqMhNkI=" crossorigin="anonymous" />
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
   </head>
   <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
-    <a class="navbar-brand" href="/">
-          <img src="http://placehold.it/150x50?text=Logo" alt="">
+    <a class="navbar-brand animated fadeIn" href="/">
+          <img src="https://i.ibb.co/M7WgvSJ/1035px-Basketball-Clipart-svg.png" alt="basketball icon">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -29,7 +34,7 @@
 
         <% if logged_in? %>
         <li class="nav-item">
-          <%= link_to 'Create a New team', new_team_path, {class: 'nv-link'} %>
+          <%= link_to 'Create a New team', new_team_path, {class: 'nav-link'} %>
         </li>
         <li class="nav-item">
           <%= link_to 'Logout', logout_path, {class: 'nav-link', method: 'delete'} %>
@@ -53,4 +58,8 @@
       </div>
     </div>
   </body>
+  <script src="js/wow.min.js"></script>
+             <script>
+             new WOW().init();
+             </script>
 </html>

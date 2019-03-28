@@ -17,15 +17,19 @@
   <%= f.text_field :school %><br><br>
   <%= f.label :team_spirit %>
   <%= f.number_field :team_spirit %><br><br>
-  <%= f.label :user_id %>
-  <%= f.number_field :user_id %><br><br>
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
   <%= f.label :history %>
   <%= f.text_field :history %> <br>
   <%= f.collection_check_boxes(:athlete_ids, @athletes, :id, :name)%>
   <%= f.submit %>
 
   <br> <br>
-  
+<% end %>
 
-  
+<%= @athletes.each do |athlete| %>
+  <img src="<%= athlete.image %>" class="image-circle" >
+  <p><%= athlete.name %> </p>
+  <p><%= athlete.offense %>  </p>
+  <p><%= athlete.defense %></p>
+  <p><%= athlete.bio %></p>
 <% end %>
