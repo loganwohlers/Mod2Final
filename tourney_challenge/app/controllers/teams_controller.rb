@@ -4,7 +4,6 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
 
         def index
             @teams=Team.all.order(name: :asc)
-
         end
 
         def new

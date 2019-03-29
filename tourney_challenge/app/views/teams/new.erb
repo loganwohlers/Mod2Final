@@ -41,6 +41,8 @@
           <%= f.label :team_spirit %>
         <%= f.select :team_spirit, ['0', '5', '10', '15', '20', '25'] %><br /><br />
         <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+        <p>Select 5 Players!</p>
         <div class="col-12 checkbox-list mt-3">
         <%= f.collection_check_boxes(:athlete_ids, @athletes, :id, :name)%>
       </div>
