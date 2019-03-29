@@ -13,7 +13,7 @@ bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entran
    team=Team.create(
       name: Faker::Team.unique.creature,
       school: Faker::University.name,
-      history: Faker::Movie.quote,
+      history: Faker::University.name,
       team_spirit: rand(1.0...50.0),
       user_id: user.id
    )
