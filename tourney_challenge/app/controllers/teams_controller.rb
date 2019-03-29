@@ -4,12 +4,12 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
 
         def index
             @teams=Team.all.order(name: :asc)
-           
+
         end
 
         def new
             @team=Team.new
-            @athletes=Athlete.order("RANDOM()").limit(7)
+            @athletes=Athlete.order("RANDOM()").limit(9)
 
 
         end
@@ -17,11 +17,13 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
         def create
             @team=Team.new(team_params)
 
-            if @team.save
-                redirect_to team_path(@team)
-            else
-                render :new
-            end
+            if @team.valid?
+               @team.save
+               redirect_to team_path(@team)
+           else
+               @athletes=Athlete.order("RANDOM()").limit(7)
+               render :new
+           end
         end
 
         def show

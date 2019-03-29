@@ -1,6 +1,14 @@
-<h3>Brackets</h3>
-<ul>
-<% @brackets.each do |item| %>
-    <li><%= link_to item.name, bracket_path(item)%> Entrants: <%= item.entrants %></li> <br> <br>
-<%end%>
-</ul>
+<style>
+
+    </style>
+    <div class="container container-table">
+            <div class="row vertical-center-row">
+                    <div class="text-center">
+            
+    <h3>Brackets</h3>
+    <% @brackets.each do |item| %>
+        <%= link_to item.name, bracket_path(item)%> (<%= item.entrants %>)<br> <br>
+    <%end%>
+    </div>
+    </div>
+    </div>

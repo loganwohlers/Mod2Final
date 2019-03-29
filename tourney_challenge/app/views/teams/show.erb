@@ -82,15 +82,15 @@
     <div class="row">
      <div class="col-md-4 text-center bg-grey p-2 text-light">
         <h3 class="mt-2 text-light">Offense Rating: </h3>
-        <h3 class="mt-0"><%=@team.offensive_score %></h3>
+        <h3 class="mt-0"><%=@team.offensive_score.round(3) %></h3>
      </div>
      <div class="col-md-4 text-center bg-grey-light p-2 text-light">
         <h3 class="mt-2">Defensive Rating:</h3>
-        <h3 class="mt-0"><%=@team.defensive_score %></h3>
+        <h3 class="mt-0"><%=@team.defensive_score.round(3) %></h3>
      </div>
      <div class="col-md-4 text-center bg-grey-lighter p-2 text-light">
         <h3 class="mt-2">Overall Power Score:</h3>
-        <h3 class="mt-0"><%= @team.power_score %></h3>
+        <h3 class="mt-0"><%= @team.power_score.round(3) %></h3>
      </div>
     </div>
     <div class="row mt-3">

@@ -1,6 +1,14 @@
-<h1>INDEX</h1>
-<ul>
+<style>
+
+</style>
+<div class="container container-table">
+        <div class="row vertical-center-row">
+                <div class="text-center">
+        
+<h3>Athletes</h3>
 <% @athletes.each do |item| %>
-    <li><%= link_to item.name, athlete_path(item)%></li> <br> <br>
+    <%= link_to item.name, athlete_path(item)%><br> <br>
 <%end%>
-</ul>
+</div>
+</div>
+</div>
