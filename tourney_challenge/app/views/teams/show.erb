@@ -76,9 +76,9 @@
 
 <div class="col-xl-2 col-md-3 mb-4">
 <ul>
-    <li>Offense Rating: <%=@team.offensive_score %></li>
-    <li>Defensive Rating: <%=@team.defensive_score %></li>
-    <li>Overall Power Score: <%= @team.power_score %></li>
+    <li>Offense Rating: <%=@team.offensive_score.round(3) %></li>
+    <li>Defensive Rating: <%=@team.defensive_score.round(3) %></li>
+    <li>Overall Power Score: <%= @team.power_score.round(3) %></li>
 </ul>
 </div>
 
