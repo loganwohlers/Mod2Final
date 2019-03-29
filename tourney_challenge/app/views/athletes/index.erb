@@ -1,4 +1,6 @@
 <h1>INDEX</h1>
+<ul>
 <% @athletes.each do |item| %>
-    <%= link_to item.name, athlete_path(item)%> <br>
+    <li><%= link_to item.name, athlete_path(item)%></li> <br> <br>
 <%end%>
+</ul>

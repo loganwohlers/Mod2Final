@@ -9,7 +9,7 @@ user = User.create(username: 'AI', password: 'robot', password_digest: 'robot')
 
 bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entrants: 16)
 
-16.times do
+32.times do
    team=Team.create(
       name: Faker::Team.unique.creature,
       school: Faker::University.name,
@@ -23,10 +23,10 @@ bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entran
          athlete=Athlete.create(
             name:Faker::Name.name,
             age: rand(18..25),
-            bio: Faker::Movie.quote,
+            bio: Faker::GreekPhilosophers.quote,
             school: Faker::University.name,
-            offense: rand(6.5...10.0),
-            defense: rand(6.5...10.0),
+            offense: rand(1.0...10.0),
+            defense: rand(1.0...10.0),
             image: UiFaces.face
          )
          AthleteTeam.create(team_id: team.id, athlete_id: athlete.id)

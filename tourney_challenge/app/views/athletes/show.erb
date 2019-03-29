@@ -93,7 +93,8 @@ span.tags
                         <p><img src="<%= @athlete.image %>"</p>
                     <h2><%= @athlete.name %></h2>
                     <p><strong>Age: </strong> <%= @athlete.age %> </p>
-                    <p><strong>Bio: </strong> <%= @athlete.bio %></p> <br> 
+                    <p><strong>School: </strong> <%= @athlete.school %> </p>
+                    <p><strong>College Knowledge: </strong> <%= @athlete.bio %></p> <br> 
                     
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
@@ -120,14 +121,12 @@ span.tags
 
                 </div>
                 <br>
-
-                
                 
             </div>
             <div class="mt-3 class=text-center">
-                <p class="p-4" class="text-center">Link To <%=@athlete.name%>'s Team(s)
+                <p class="p-4" class="text-center"><%=@athlete.name%>'s Team(s)
                 <% @athlete.teams.each do |t| %>
-                        <%=link_to t.name, team_path(t)%>
+                        <%=link_to t.name, team_path(t)%> 
                 <% end %>
                     </p>
                 </div>
