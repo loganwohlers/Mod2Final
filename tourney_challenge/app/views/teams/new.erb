@@ -1,35 +1,85 @@
-<h1>Create a New Team </h1>
+<style>
+  .checkbox-list input[type="checkbox"] {
+    display: inline-block;
+    width: 10%;
+  }
 
-<% if @team.errors.any?  %>
- <div id="error explanation">
- <h2>We found a few errors in your form:</h2>
- <ul>
- <% @team.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
- <% end  %>
- </ul>
-<% end  %>
+  .checkbox-list input[type="checkbox"] + label {
+    display: inline-block;
+    margin-left: 1%;
+    width: 80%;
+  }
+</style>
 
-<%= form_for(@team) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br><br>
-  <%= f.label :school %>
-  <%= f.text_field :school %><br><br>
-  <%= f.label :team_spirit %>
-  <%= f.number_field :team_spirit %><br><br>
-  <%= f.hidden_field :user_id, value: session[:user_id] %>
-  <%= f.label :history %>
-  <%= f.text_field :history %> <br>
-  <%= f.collection_check_boxes(:athlete_ids, @athletes, :id, :name)%>
-  <%= f.submit %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center bg-primary p-3">
+      <h1>Create a New Team </h1>
+    </div>
+  </div>
 
-  <br> <br>
-<% end %>
+  <div class="row mt-3">
+    <div class="col-md-8 offset-md-2">
+      <% if @team.errors.any?  %>
+       <div id="error explanation">
+       <h2>We found a few errors in your form:</h2>
+       <ul>
+       <% @team.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end  %>
+       </ul>
+      <% end  %>
 
-<%= @athletes.each do |athlete| %>
-  <img src="<%= athlete.image %>" class="image-circle" >
-  <p><%= athlete.name %> </p>
-  <p><%= athlete.offense %>  </p>
-  <p><%= athlete.defense %></p>
-  <p><%= athlete.bio %></p>
-<% end %>
+      <%= form_for(@team) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
+        <%= f.label :school %>
+        <%= f.text_field :school %><br><br>
+
+        <%= f.label :history %>
+        <%= f.text_field :history %><br /><br />
+          <%= f.label :team_spirit %>
+        <%= f.select :team_spirit, ['0', '5', '10', '15', '20', '25'] %><br /><br />
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <div class="col-12 checkbox-list mt-3">
+        <%= f.collection_check_boxes(:athlete_ids, @athletes, :id, :name)%>
+      </div>
+        <%= f.submit %>
+
+        <br> <br>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <!-- Team Member 1 -->
+      <% @athletes.each do |athlete| %>
+      <div class="col-lg-4 col-md-4  mx-auto">
+
+       <div class="card border-0 shadow p-3">
+         <img src="<%= athlete.image %>" class="image-circle" >
+         <p><h2 class="text-success"><%= athlete.name %></h2> </p>
+         <p><b>Offensive Power:</b> <%= athlete.offense.round(3) %>  </p>
+         <p><b>Defensive Power:</b> <%= athlete.defense.round(3) %></p>
+         <p><b>Mantra:</b> <%= athlete.bio %></p>
+        </div>
+
+       </div>
+       <% end %>
+      </div>
+    </div>
+
+  </div>
+
+
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 5) {
+        $(this).prop('checked', false);
+        alert("Please only select 5 athletes");
+    }
+});
+  </script>
