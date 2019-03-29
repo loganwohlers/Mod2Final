@@ -3,10 +3,23 @@
 
 <%=@user.username%> <br>
 
-<% @user.teams.each do |item| %>
-    <%= link_to item.name, team_path(item)%> <br>
-<%end%>
+<h2>Your Teams!</h2>
 
+<ul>
+<% @user.teams.each do |item| %>
+    <li><%= link_to item.name, team_path(item)%></li> 
+<%end%>
+</ul>
+
+
+<h2>Your Brackets!</h2>
+
+
+<ul>
+    <% @user.brackets.each do |item| %>
+        <li><%= link_to item.name, bracket_path(item)%></li> 
+    <%end%>
+</ul>
 
 
 

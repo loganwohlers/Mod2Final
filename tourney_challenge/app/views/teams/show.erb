@@ -1,88 +1,101 @@
-<header class="bg-primary text-center py-5 mb-4">
-        <div class="container">
-          <h1 class="font-weight-light text-white">Meet <%= @team.user.username %>'s <%= @team.name.capitalize %></h1>
-        </div>
-      </header>
-      
-      <!-- Page Content -->
-      <div class="container">
-        <div class="row">
-          <!-- Team Member 1 -->
-          <div class="col-xl-2 col-md-3 mb-4">
-            <div class="card border-0 shadow">
-                <a href="<%= athlete_path(@team.athletes[0])%>">
-                <img src="<%= @team.athletes[0].image %>" class="card-img-top" alt="...">
-                </a>
-              <div class="card-body text-center">
-                <h5 class="card-title mb-0"><%= @team.athletes[0].name %></h5>
-                <div class="card-text text-black-50">Spiritual Leader</div>
-              </div>
-            </div>
-          </div>
-          <!-- Team Member 2 -->
-          <div class="col-xl-2 col-md-3 mb-4">
-            <div class="card border-0 shadow">
-            <a href="<%= athlete_path(@team.athletes[1])%>">
-              <img src="<%= @team.athletes[1].image %>" class="card-img-top" alt="...">
-              </a>
-              <div class="card-body text-center">
-                <h5 class="card-title mb-0"><%= @team.athletes[1].name %></h5>
-                <div class="card-text text-black-50">Bench Warmer</div>
-              </div>
-            </div>
-          </div>
-          <!-- Team Member 3 -->
-          <div class="col-xl-2 col-md-3 mb-4">
-            <div class="card border-0 shadow">
-                <a href="<%= athlete_path(@team.athletes[2])%>">
-                    <img src="<%= @team.athletes[2].image %>" class="card-img-top" alt="...">
-                </a>
-              <div class="card-body text-center">
-                <h5 class="card-title mb-0"><%= @team.athletes[2].name %></h5>
-                <div class="card-text text-black-50">Hi-Five Guru</div>
-              </div>
-            </div>
-          </div>
-          <!-- Team Member 4 -->
-          <div class="col-xl-2 col-md-3 mb-4">
-            <div class="card border-0 shadow">
-                    <a href="<%= athlete_path(@team.athletes[3])%>">
-                            <img src="<%= @team.athletes[3].image %>" class="card-img-top" alt="...">
-                    </a>
-              <div class="card-body text-center">
-                <h5 class="card-title mb-0"><%= @team.athletes[3].name %></h5>
-                <div class="card-text text-black-50">Can't Dunk</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-2 col-md-3 mb-4">
-                <div class="card border-0 shadow">
-                        <a href="<%= athlete_path(@team.athletes[4])%>">
-                                <img src="<%= @team.athletes[4].image %>" class="card-img-top" alt="...">
-                            </a>
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0"><%= @team.athletes[4].name %></h5>
-                    <div class="card-text text-black-50">Real Gym Rat</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 4 -->
-        </div>
-      
+   <div class="container bg-primary p-3">
+    <div class="row">
+     <div class="col-12">
+      <h1 class="text-center text-uppercase text-white">Meet <%= @team.user.username %>'s <%= @team.name.capitalize %></h1>
+     </div>
+    </div>
+   </div>
+   <!-- Page Content -->
+   <div class="container mt-3">
+    <div class="row">
+     <!-- Team Member 1 -->
+     <div class="col-xl-2 col-md-3 mb-4 mx-auto">
+      <div class="card border-0 shadow">
+        <a href="<%= athlete_path(@team.athletes[0])%>">
+        <img src="<%= @team.athletes[0].image %>" class="card-img-top" alt="...">
+        </a>
+       <div class="card-body text-center">
+        <h5 class="card-title mb-0"><%= @team.athletes[0].name %></h5>
+        <div class="card-text text-black-50">Spiritual Leader</div>
+       </div>
       </div>
-
-<h1>Team Stats</h1>
-
-<div class="col-xl-2 col-md-3 mb-4">
-<ul>
-    <li>Offense Rating: <%=@team.offensive_score %></li>
-    <li>Defensive Rating: <%=@team.defensive_score %></li>
-    <li>Overall Power Score: <%= @team.power_score %></li>
-</ul>
-</div>
-
-<%= link_to ('Back to All Teams'), teams_path%>
-
-
-
+     </div>
+     <!-- Team Member 2 -->
+     <div class="col-xl-2 col-md-3 mb-4 mx-auto">
+      <div class="card border-0 shadow">
+      <a href="<%= athlete_path(@team.athletes[1])%>">
+       <img src="<%= @team.athletes[1].image %>" class="card-img-top" alt="...">
+       </a>
+       <div class="card-body text-center">
+        <h5 class="card-title mb-0"><%= @team.athletes[1].name %></h5>
+        <div class="card-text text-black-50">Bench Warmer</div>
+       </div>
+      </div>
+     </div>
+     <!-- Team Member 3 -->
+     <div class="col-xl-2 col-md-3 mb-4 mx-auto">
+      <div class="card border-0 shadow">
+        <a href="<%= athlete_path(@team.athletes[2])%>">
+          <img src="<%= @team.athletes[2].image %>" class="card-img-top" alt="...">
+        </a>
+       <div class="card-body text-center">
+        <h5 class="card-title mb-0"><%= @team.athletes[2].name %></h5>
+        <div class="card-text text-black-50">Hi-Five Guru</div>
+       </div>
+      </div>
+     </div>
+     <!-- Team Member 4 -->
+     <div class="col-xl-2 col-md-3 mb-4 mx-auto">
+      <div class="card border-0 shadow">
+          <a href="<%= athlete_path(@team.athletes[3])%>">
+              <img src="<%= @team.athletes[3].image %>" class="card-img-top" alt="...">
+          </a>
+       <div class="card-body text-center">
+        <h5 class="card-title mb-0"><%= @team.athletes[3].name %></h5>
+        <div class="card-text text-black-50">Can't Dunk</div>
+       </div>
+      </div>
+     </div>
+     <div class="col-xl-2 col-md-3 mb-4 mx-auto">
+        <div class="card border-0 shadow">
+            <a href="<%= athlete_path(@team.athletes[4])%>">
+                <img src="<%= @team.athletes[4].image %>" class="card-img-top" alt="...">
+              </a>
+         <div class="card-body text-center">
+          <h5 class="card-title mb-0"><%= @team.athletes[4].name %></h5>
+          <div class="card-text text-black-50">Real Gym Rat</div>
+         </div>
+        </div>
+       </div>
+       <!-- Team Member 4 -->
+    </div>
+   </div>
+   </div>
+   <div class="container bg-primary p-3">
+    <div class="row">
+     <div class="col-12">
+      <h1 class="text-center text-uppercase text-white">Team Stats</h1>
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-4 text-center bg-grey p-2 text-light">
+        <h3 class="mt-2 text-light">Offense Rating: </h3>
+        <h3 class="mt-0"><%=@team.offensive_score %></h3>
+     </div>
+     <div class="col-md-4 text-center bg-grey-light p-2 text-light">
+        <h3 class="mt-2">Defensive Rating:</h3>
+        <h3 class="mt-0"><%=@team.defensive_score %></h3>
+     </div>
+     <div class="col-md-4 text-center bg-grey-lighter p-2 text-light">
+        <h3 class="mt-2">Overall Power Score:</h3>
+        <h3 class="mt-0"><%= @team.power_score %></h3>
+     </div>
+    </div>
+    <div class="row mt-3">
+     <div class="col-md-12 text-center">
+        <%= link_to ('Back to All Teams'), teams_path%>
+     </div>
+    </div>
+   </div>
