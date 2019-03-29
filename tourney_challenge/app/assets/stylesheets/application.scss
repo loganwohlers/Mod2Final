@@ -335,3 +335,11 @@ a:focus, a:hover {
 footer {
   padding: 5rem 0;
 }
+
+.container-table {
+  display: table;
+}
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}
