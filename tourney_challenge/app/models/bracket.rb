@@ -2,6 +2,8 @@ class Bracket < ApplicationRecord
 	belongs_to :user
 	has_many :team_brackets
 	has_many :teams, through: :team_brackets
+	validates :name, :entrants, :presence => true
+	validates :name, :uniqueness => true
 
 	def play_game(t1, t2)
 		t1sauce=special_sauce(t1)
