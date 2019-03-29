@@ -39,7 +39,7 @@
         <%= f.label :history %>
         <%= f.text_field :history %><br /><br />
           <%= f.label :team_spirit %>
-        <%= f.select :team_spirit, ['0', '5', '10', '15', '20', '25'] %><br /><br />
+        <%= f.select :team_spirit, ['5', '10', '15', '20', '25'] %><br /><br />
         <%= f.hidden_field :user_id, value: session[:user_id] %>
 
         <p>Select 5 Players!</p>
