@@ -9,7 +9,7 @@ user = User.create(username: 'AI', password: 'robot', password_digest: 'robot')
 
 bracket = Bracket.create(name: Faker::Color.color_name, user_id: user.id, entrants: 16)
 
-32.times do
+64.times do
    team=Team.create(
       name: Faker::Team.unique.creature,
       school: Faker::University.name,
