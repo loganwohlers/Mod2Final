@@ -1,5 +1,3 @@
-
-
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
@@ -14,7 +12,15 @@
     opacity: .75;
     transition: ease .35s;
 }
-
+.bg-grey{
+  background: #5d5d5d;
+}
+.bg-grey-light{
+  background: #756e6e;
+}
+.bg-grey-lighter{
+  background: #a29b9b;
+}
 
 
 
