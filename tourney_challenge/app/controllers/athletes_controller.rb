@@ -3,7 +3,8 @@ class AthletesController < ApplicationController
   before_action :set_athlete, only: [:show, :edit, :update, :destroy]
 
         def index
-                @athletes=Athlete.all
+                @athletes=Athlete.all.order(name: :asc)
+                
             end
 
             def new

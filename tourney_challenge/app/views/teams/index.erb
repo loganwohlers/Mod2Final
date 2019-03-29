@@ -17,13 +17,16 @@
         </p>
         <hr>
         <p class="card-text">
-          Offensive Power:<%= item.offensive_score %>
+          Offensive Rating:<%= item.offensive_score.round(3) %>
         </p>
         <p class="card-text">
-          Defensive Power: <%= item.defensive_score %>
+          Defensive Rating: <%= item.defensive_score.round(3) %>
         </p>
         <p class="card-text">
-          Total Power: <%= item.power_score %>
+          Team Spirit: <%= item.team_spirit.round(3) %>
+        </p>
+        <p class="card-text">
+          Total Rating: <%= item.power_score.round(3) %>
         </p>
         <hr>
         <h4 class="btn btn-outline-dark text-uppercase"><%= link_to item.name, team_path(item)%></h4>

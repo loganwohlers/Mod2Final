@@ -2,8 +2,9 @@ class TeamsController < ApplicationController
 skip_before_action :authenticate_user, only: [:index, :show]
 before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-    def index
-            @teams=Team.all
+        def index
+            @teams=Team.all.order(name: :asc)
+           
         end
 
         def new

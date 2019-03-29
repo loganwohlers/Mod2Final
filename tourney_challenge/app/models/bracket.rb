@@ -17,7 +17,7 @@ class Bracket < ApplicationRecord
    end
 
    def special_sauce (team)
-		team.power_score*rand(0.93..1.15)*rand(1-team.team_spirit/100...1+team.team_spirit/100)
+		team.power_score*rand(0.93..1.15)*(rand(1-team.team_spirit/100...1+team.team_spirit/100))
    end
 
    def order_teams
