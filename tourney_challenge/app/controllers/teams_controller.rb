@@ -27,19 +27,6 @@ before_action :set_team, only: [:show, :edit, :update, :destroy]
         def show
         end
 
-        def edit
-        end
-
-        def update
-            @team.update(team_params)
-            redirect_to team_path(@example)
-        end
-
-        def destroy
-            @team.destroy
-            redirect_to teams_path
-        end
-
         private
 
         def set_team

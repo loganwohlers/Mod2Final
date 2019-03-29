@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :athlete_teams
   resources :athletes
   resources :users
   resources :brackets
-  resources :tournaments
   resources :teams
 
   root 'teams#index'

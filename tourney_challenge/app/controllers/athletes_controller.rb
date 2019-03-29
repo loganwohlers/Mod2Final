@@ -23,20 +23,7 @@ class AthletesController < ApplicationController
 
             def show
             end
-
-            def edit
-            end
-
-            def update
-                @athlete.update(athlete_params)
-                redirect_to athlete_path(@example)
-            end
-
-            def destroy
-                @athlete.destroy
-                redirect_to athletes_path
-            end
-
+            
             private
 
             def set_athlete

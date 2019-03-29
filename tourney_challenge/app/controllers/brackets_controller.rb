@@ -1,7 +1,7 @@
 class BracketsController < ApplicationController
     before_action :set_bracket, only: [:show, :edit, :update, :destroy]
         def index
-                @brackets=Bracket.all.order(entrants: :asc)
+                @brackets=Bracket.all.order(entrants: :desc)
             end
         
             def new
@@ -26,18 +26,6 @@ class BracketsController < ApplicationController
                 
             end
         
-            def edit
-            end
-            
-            def update
-                @bracket.update(bracket_params)
-                redirect_to bracket_path(@example)
-            end
-    
-            def destroy
-                @bracket.destroy
-                redirect_to brackets_path
-            end
         
             private
     
